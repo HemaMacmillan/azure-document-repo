@@ -1,6 +1,6 @@
 Azure Document Repository
 Design and architecture for a file management system built on Azure services. This repo contains diagrams, requirements, and backlog issues to showcase a cloud-native document repository migration from legacy systems.
-________________________________________
+________________________________________________________________________________________________
 🌐 Overview
 •	File types: PDF, Word (.docx)
 •	Max size: 1 MB per file
@@ -13,7 +13,7 @@ o	User → view + search only
 •	Platform: Azure Blob Storage + SQL Database + App Service + Functions + Key Vault
 •	Soft delete: 30 days retention with restore option
 •	Notifications: Email alerts 10 days before purge + purge list page
-________________________________________
+________________________________________________________________________________________________
 🏗 Architecture Diagram
 flowchart TB
   subgraph Client
@@ -47,7 +47,15 @@ flowchart TB
   Fn --> SQL
   Fn --> LA
   UI -->|Queries| APIM --> BE -->|Search| SQL
-________________________________________
+________________________________________________________________________________________________
+
+## 🏗 Key Diagrams
+- 📊 [Entity Relationship Diagram (ERD)](docs/diagrams/erd.md)  
+- 🔄 [Lifecycle Flow](docs/diagrams/lifecycle.md)  
+- ⬆️ [Upload Workflow Sequence](docs/diagrams/upload-sequence.md)  
+- 🗑️ [Purge Workflow Sequence](docs/diagrams/purge-sequence.md)  
+________________________________________________________________________________________________
+
 📌 Backlog Highlights
 feat(storage): soft delete (30d), lifecycle Hot→Cool→Cold
 feat(ui): category tree + counts
@@ -55,12 +63,12 @@ feat(ui): PDF preview; DOCX→PDF preview
 feat(ui): purge list page (soft-deleted files)
 feat(job): nightly purge-warning email (10d)
 feat(security): Defender for Storage malware scanning
-________________________________________
+________________________________________________________________________________________________
 📁 Repo Structure
 /README.md          ← Overview (this file)
 /docs               ← Documentation & diagrams
 /docs/diagrams      ← PNG/SVG exports of Mermaid diagrams
 /backend            ← Placeholder for API code (future)
 /infra              ← Infra-as-code (Bicep/ARM templates)
-________________________________________
+________________________________________________________________________________________________
 👉 See the Full Design Document for detailed architecture, data model, workflows, and IAM rules.
