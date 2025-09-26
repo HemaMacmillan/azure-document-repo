@@ -8,6 +8,7 @@ flowchart TD
 
   D -- Malicious --> Q[Quarantine + Notify Admin]
   D -- Clean --> B[Store in Blob (Hot tier)]
+
   B --> M[Metadata in SQL + Audit log]
 
   %% Lifecycle progression
